@@ -24,8 +24,7 @@ module NodeRails
               id: self.id,
               obj: self }
 
-      binding.pry
-      $redis.publish 'node-rails-change', msg.to_json
+      $redis.publish "node-rails-change/#{self.user.id}", msg.to_json
     end
   end
 end
