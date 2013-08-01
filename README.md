@@ -26,10 +26,10 @@ Go to the node-rails directory in the root of the application and npm install
   
 Add the node_rails_client helper to the end of &lt;head&gt; of your application layout, passing in @current_user as a parameter
       
-    &lt;head&gt;
+    <head>
       ...
       node_rails_client(@current_user)
-    &lt;/head&gt;
+    </head>
   
 Add the node_rails_devise_redis_sync helper to the beginning of sessions#after_sign_in_path_for
   
