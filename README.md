@@ -28,7 +28,7 @@ Add the node_rails_client helper to the end of &lt;head&gt; of your application 
       
     <head>
       ...
-      node_rails_client(@current_user)
+      <%= node_rails_client(@current_user) %>
     </head>
   
 Add the node_rails_devise_redis_sync helper to the beginning of sessions#after_sign_in_path_for
