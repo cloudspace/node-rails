@@ -18,30 +18,42 @@ And then execute:
 
 Generate the Node directory and other required JS and Initializers
 
-  rails g node:install
+    $ rails g node:install
   
 Go to the node-rails directory in the root of the application and npm install
 
-  cd node-rails && npm install
+    $ cd node-rails && npm install
   
-Add the node_rails_client helper to the head of your application layout, passing in @current_user as a parameter
-  
-  node_rails_client(@current_user)
+Add the node_rails_client helper to the end of <head> of your application layout, passing in @current_user as a parameter
+      <head>
+        ...
+        node_rails_client(@current_user)
+      </head>
   
 Add the node_rails_devise_redis_sync helper to the beginning of sessions#after_sign_in_path_for
   
-  node_rails_devise_redis_sync(@current_user)
+    def after_sign_in_path_for
+      node_rails_devise_redis_sync(@current_user)
+      ...
+    end
   
-Add the node_rails_devise_redis_clean helper to the beginning of the after_sign_out_path_action
-
-  node_rails_devise_redis_clean
+Add the node_rails_devise_redis_clean helper to the beginning of the after_sign_out_path action
+    
+    def after_sign_out_path
+      node_rails_devise_redis_clean
+      ...
+    end
 
 Start the node server
 
-  cd node-rails
-  node node-rails-server.js
+    $ cd node-rails
+    $ node node-rails-server.js
   
 Add acts_as_node to any model you want to trigger socket events
-
-  acts_as_node
+    
+    class SomeModel < ActiveRecord::Base
+      ...
+      acts_as_node
+      ...
+    end
   
