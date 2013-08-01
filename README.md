@@ -58,3 +58,13 @@ Add acts_as_node to any model you want to trigger socket events
       ...
     end
   
+Out of the box, node-rails will send a message on create, update, or delete to the user object associated with the acts_as_node object.  You can override the message instance method on any acts_as_node object.  Each user is subscribed to their own namespace "node-rails-change/#{@current_user.id}":
+
+    def node_message action
+      msg = { resource: self.class.name.downcase,
+              action: action,
+              id: self.id,
+              obj: self }
+
+      $redis.publish "node-rails-change/#{self.user.id}", msg.to_json
+    end
