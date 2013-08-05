@@ -23,7 +23,16 @@ Generate the Node directory and other required JS and Initializers
 Go to the node-rails directory in the root of the application and npm install
 
     $ cd node-rails && npm install
-  
+
+Add underscore, node, and socket.io to your application.js file, after JQuery, in that order
+
+	//= jquery
+	...
+	//= underscore
+	//= node
+	//= socket.io
+	...
+
 Add the node_rails_client helper to the end of &lt;head&gt; of your application layout, passing in @current_user as a parameter
       
     <head>
