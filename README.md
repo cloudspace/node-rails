@@ -24,13 +24,12 @@ Go to the node-rails directory in the root of the application and npm install
 
     $ cd node-rails && npm install
 
-Add underscore, node, and socket.io to your application.js file, after JQuery, in that order
+Add underscore and socket.io to your application.js file, after JQuery, in that order
 
-	//= jquery
+	//= require jquery
 	...
-	//= underscore
-	//= node
-	//= socket.io
+	//= require underscore
+	//= require socket.io
 	...
 
 Add the node_rails_client helper to the end of &lt;head&gt; of your application layout, passing in @current_user as a parameter
