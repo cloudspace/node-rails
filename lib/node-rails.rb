@@ -1,4 +1,4 @@
-require 'version'
+require 'node-rails/version'
 require 'rails'
 require 'underscore-rails'
 require 'socket.io-rails'

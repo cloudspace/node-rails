@@ -1,7 +1,8 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'version'
+puts $LOAD_PATH
+require 'node-rails/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "node-rails"
@@ -25,5 +26,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency "rails", ">= 3.2.0"
   spec.add_dependency "underscore-rails"
   spec.add_dependency "redis"
+
   
 end
